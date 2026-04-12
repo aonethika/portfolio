@@ -18,10 +18,13 @@ export const projects = {
     live: "http://13.206.89.129/auth/login",
 
     features: [
-      "Patient dashboard",
-      "Doctor dashboard",
-      "Admin control panel",
-      "Appointment system",
+      "Role-based dashboards (Admin / Doctor / Patient)",
+      "Appointment & slot booking system",
+      "Walk-in token management",
+      "Prescription & patient history tracking",
+      "Doctor schedule and availability management",
+      "Real-time appointment status updates",
+      "Admin control panel for hospital operations",
     ],
   },
 
@@ -42,14 +45,18 @@ export const projects = {
 
     live: "https://fintrcker.netlify.app/",
 
-    features: [
-      "Expense tracking",
-      "Income management",
-      "Analytics dashboard",
-      "Monthly reports",
-    ],
-  },
-
+     features: [
+    "Personal income & expense tracking",
+    "Category-wise expense management",
+    "Monthly financial analysis and reports",
+    "Interactive charts and spending insights",
+    "Create groups and split shared expenses",
+    "Equal and custom bill splitting",
+    "Real-time balance tracking (who owes whom)",
+    "Settle-up system for clearing group debts",
+    "Unified dashboard for personal and group finances",
+  ],
+},
   shopnow: {
     title: "ShopNow - E-commerce UI",
     desc: "Modern ecommerce UI with product browsing and cart experience.",
@@ -68,10 +75,13 @@ export const projects = {
     live: "#",
 
     features: [
-      "Product listing UI",
-      "Cart system",
-      "Responsive design",
-      "API-ready structure",
+      "Product listing with API integration",
+      "Category-based product filtering",
+      "Shopping cart management system",
+      "Responsive ecommerce UI design",
+      "Dynamic product detail pages",
+      "Add to cart and quantity control",
+      "Clean and modern shopping experience",
     ],
   },
 };
