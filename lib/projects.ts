@@ -33,6 +33,31 @@ export const projects = {
     ],
   },
 
+   dentalClinic: {
+    title: "Olive Dental Clinic",
+    desc: "Minimal dental clinic system for appointment booking and basic admin/doctor management.",
+
+    theme: {
+      bg: "from-emerald-950 via-teal-900 to-black",
+      accent: "emerald-400",
+      glow: "emerald-500/20",
+    },
+
+    images: [
+      "/oliveDentalHome.png",
+    ],
+
+    live: "https://olive-dental-home.vercel.app/",
+
+    features: [
+      "Patient appointment booking",
+      "Doctor & admin management",
+      "Daily booking overview",
+      "Simple call-based booking",
+      "Clean responsive UI",
+    ],
+  },
+
   fintrackr: {
     title: "FinTrackr - Personal Finance Tracker",
     desc: "Finance tracking app with analytics, income/expense management and charts.",
@@ -101,28 +126,5 @@ export const projects = {
     ],
   },
 
-  dentalClinic: {
-    title: "Olive Dental Clinic",
-    desc: "Minimal dental clinic system for appointment booking and basic admin/doctor management.",
-
-    theme: {
-      bg: "from-emerald-950 via-teal-900 to-black",
-      accent: "emerald-400",
-      glow: "emerald-500/20",
-    },
-
-    images: [
-      "/oliveDentalHome.png",
-    ],
-
-    live: "https://olive-dental-home.vercel.app/",
-
-    features: [
-      "Patient appointment booking",
-      "Doctor & admin management",
-      "Daily booking overview",
-      "Simple call-based booking",
-      "Clean responsive UI",
-    ],
-  },
+ 
 };

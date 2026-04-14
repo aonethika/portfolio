@@ -9,6 +9,7 @@ export default async function ProjectPage({
   const { slug } = await params;
 
   const project = projects[slug as keyof typeof projects];
+  
 
   if (!project) {
     return (

@@ -9,6 +9,11 @@ const projects = [
     desc: "Role-based hospital system with appointments, doctor scheduling, and admin dashboard.",
     slug: "hms",
   },
+   {
+    title: "Olive Dental Home",
+    desc: "Dental clinic web app for appointment booking and clinic management.",
+    slug: "dentalClinic",
+  },
   {
     title: "FinTrackr",
     desc: "Finance tracking dashboard with analytics and expense management.",
@@ -19,11 +24,7 @@ const projects = [
     desc: "E-commerce UI with product API integration and cart system.",
     slug: "shopnow",
   },
-  {
-    title: "Olive Dental Home",
-    desc: "Dental clinic web app for appointment booking and clinic management.",
-    slug: "dentalClinic",
-  }
+ 
 ];
 
 export default function Projects() {
