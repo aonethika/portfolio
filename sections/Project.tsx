@@ -19,6 +19,11 @@ const projects = [
     desc: "E-commerce UI with product API integration and cart system.",
     slug: "shopnow",
   },
+  {
+    title: "Olive Dental Home",
+    desc: "Dental clinic web app for appointment booking and clinic management.",
+    slug: "dentalClinic",
+  }
 ];
 
 export default function Projects() {

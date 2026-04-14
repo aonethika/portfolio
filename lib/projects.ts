@@ -2,7 +2,7 @@ export const projects = {
   hms: {
     title: "Hospital Management System",
     desc: "Role-based system for doctors, patients, and admin with appointment scheduling and dashboards.",
-    
+
     theme: {
       bg: "from-gray-950 via-slate-900 to-gray-950",
       accent: "cyan-400",
@@ -16,6 +16,11 @@ export const projects = {
     ],
 
     live: "http://13.206.89.129/auth/login",
+
+    credentials: {
+      email: "admin / doctor / patient login",
+      password: "set during registration or admin setup",
+    },
 
     features: [
       "Role-based dashboards (Admin / Doctor / Patient)",
@@ -45,24 +50,30 @@ export const projects = {
 
     live: "https://fintrcker.netlify.app/",
 
-     features: [
-    "Personal income & expense tracking",
-    "Category-wise expense management",
-    "Monthly financial analysis and reports",
-    "Interactive charts and spending insights",
-    "Create groups and split shared expenses",
-    "Equal and custom bill splitting",
-    "Real-time balance tracking (who owes whom)",
-    "Settle-up system for clearing group debts",
-    "Unified dashboard for personal and group finances",
-  ],
-},
+    credentials: {
+      email: "test@gmail.com",
+      password: "password1234",
+    },
+
+    features: [
+      "Personal income & expense tracking",
+      "Category-wise expense management",
+      "Monthly financial analysis and reports",
+      "Interactive charts and spending insights",
+      "Create groups and split shared expenses",
+      "Equal and custom bill splitting",
+      "Real-time balance tracking (who owes whom)",
+      "Settle-up system for clearing group debts",
+      "Unified dashboard for personal and group finances",
+    ],
+  },
+
   shopnow: {
     title: "ShopNow - E-commerce UI",
     desc: "Modern ecommerce UI with product browsing and cart experience.",
 
     theme: {
-      bg: "from-zinc-950 via-stone-900 to-black",
+      bg: "from-black via-red-950 to-black",
       accent: "rose-400",
       glow: "rose-500/20",
     },
@@ -72,7 +83,12 @@ export const projects = {
       "/shopNowDash.png",
     ],
 
-    live: "#",
+    live: "https://shopnow-store.netlify.app/",
+
+    credentials: {
+      email: "user1@gmail.com",
+      password: "1234",
+    },
 
     features: [
       "Product listing with API integration",
@@ -82,6 +98,31 @@ export const projects = {
       "Dynamic product detail pages",
       "Add to cart and quantity control",
       "Clean and modern shopping experience",
+    ],
+  },
+
+  dentalClinic: {
+    title: "Olive Dental Clinic",
+    desc: "Minimal dental clinic system for appointment booking and basic admin/doctor management.",
+
+    theme: {
+      bg: "from-emerald-950 via-teal-900 to-black",
+      accent: "emerald-400",
+      glow: "emerald-500/20",
+    },
+
+    images: [
+      "/oliveDentalHome.png",
+    ],
+
+    live: "https://olive-dental-home.vercel.app/",
+
+    features: [
+      "Patient appointment booking",
+      "Doctor & admin management",
+      "Daily booking overview",
+      "Simple call-based booking",
+      "Clean responsive UI",
     ],
   },
 };
