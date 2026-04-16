@@ -20,10 +20,16 @@ const projects = [
     slug: "fintrackr",
   },
   {
+    title: "Cake Lounge",
+    desc: "Cake shop UI with modern design and static product data.",
+    slug: "cakelounge",
+  },
+  {
     title: "ShopNow",
     desc: "E-commerce UI with product API integration and cart system.",
     slug: "shopnow",
   },
+  
  
 ];
 

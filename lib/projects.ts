@@ -126,5 +126,33 @@ export const projects = {
     ],
   },
 
+  cakelounge: {
+  title: "Cake Lounge - Cake Shop UI",
+  desc: "Elegant cake shop website with a modern UI for browsing cakes and categories.",
+
+  theme: {
+    bg: "from-amber-900 via-rose-900 to-black",
+    accent: "amber-300",
+    glow: "amber-400/20",
+  },
+
+  images: [
+    "/cakeLoungeTitle.png",
+    "/cakeLoungeHome.png",
+  ],
+
+  live: "https://cake-lounge.vercel.app/",
+
+  features: [
+    "Modern cake shop UI with elegant design",
+    "Product listing with categorized cake items",
+    "Responsive layout for all screen sizes",
+    "Reusable Next.js components architecture",
+    "Smooth navigation and clean user experience",
+    "Static frontend data handling without backend",
+    "Chocolate-themed visual design system",
+  ],
+},
+
  
 };
