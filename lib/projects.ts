@@ -93,6 +93,34 @@ export const projects = {
     ],
   },
 
+  coffeeshop: {
+  title: "Coffee House - Premium Coffee Shop UI",
+  desc: "Aesthetic coffee shop website with smooth animations and a modern, cozy browsing experience.",
+
+  theme: {
+    bg: "from-[#3b2f2f] via-[#1e1e1e] to-black",
+    accent: "amber-200",
+    glow: "amber-300/20",
+  },
+
+  images: [
+    "/brew-bean-title.png",
+    "/brew-bean-home.png",
+  ],
+
+  live: "https://your-coffee-site.vercel.app/",
+
+  features: [
+    "Modern coffee shop UI with warm, cozy aesthetics",
+    "Smooth animations using Framer Motion",
+    "Responsive design optimized for mobile and desktop",
+    "Interactive menu browsing experience",
+    "Reusable component-based architecture (Next.js)",
+    "Clean and minimal navigation flow",
+    "Custom theme inspired by coffee tones and ambiance",
+  ],
+},
+
   shopnow: {
     title: "ShopNow - E-commerce UI",
     desc: "Modern ecommerce UI with product browsing and cart experience.",

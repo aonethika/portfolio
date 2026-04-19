@@ -25,6 +25,11 @@ const projects = [
     slug: "cakelounge",
   },
   {
+  title: "Brew Beans",
+  desc: "Clean and responsive coffee shop website for browsing menu and drinks.",
+  slug: "coffeeshop",
+},
+  {
     title: "ShopNow",
     desc: "E-commerce UI with product API integration and cart system.",
     slug: "shopnow",
