@@ -108,7 +108,7 @@ export const projects = {
     "/brew-bean-home.png",
   ],
 
-  live: "https://your-coffee-site.vercel.app/",
+  live: "https://brew-bean-chi.vercel.app/",
 
   features: [
     "Modern coffee shop UI with warm, cozy aesthetics",
