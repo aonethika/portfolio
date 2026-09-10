@@ -1,11 +1,12 @@
 export const projects = {
   hms: {
-    title: "Hospital Management System",
-    desc: "Role-based system for doctors, patients, and admin with appointment scheduling and dashboards.",
+    title: "Digital Clinic Management System",
+    desc: "A production-deployed clinic operations platform with role-based workflows, appointment scheduling, pharmacy billing and revenue analytics.",
 
     theme: {
       bg: "from-gray-950 via-slate-900 to-gray-950",
-      accent: "cyan-400",
+      accent: "#08c5e5",
+      surface: "#06121f",
       glow: "cyan-500/20",
     },
 
@@ -39,7 +40,8 @@ export const projects = {
 
     theme: {
       bg: "from-emerald-950 via-teal-900 to-black",
-      accent: "emerald-400",
+      accent: "#58e6b2",
+      surface: "#04372d",
       glow: "emerald-500/20",
     },
 
@@ -64,7 +66,8 @@ export const projects = {
 
     theme: {
       bg: "from-black via-gray-900 to-black",
-      accent: "green-400",
+      accent: "#4a8cff",
+      surface: "#10233b",
       glow: "green-500/20",
     },
 
@@ -99,7 +102,8 @@ export const projects = {
 
   theme: {
     bg: "from-[#3b2f2f] via-[#1e1e1e] to-black",
-    accent: "amber-200",
+    accent: "#c99269",
+    surface: "#301817",
     glow: "amber-300/20",
   },
 
@@ -127,7 +131,8 @@ export const projects = {
 
     theme: {
       bg: "from-black via-red-950 to-black",
-      accent: "rose-400",
+      accent: "#c9cca3",
+      surface: "#4a1518",
       glow: "rose-500/20",
     },
 
@@ -160,7 +165,8 @@ export const projects = {
 
   theme: {
     bg: "from-amber-900 via-rose-900 to-black",
-    accent: "amber-300",
+    accent: "#e4bfc1",
+    surface: "#4d1114",
     glow: "amber-400/20",
   },
 

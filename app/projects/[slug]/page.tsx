@@ -1,97 +1,69 @@
-import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { CSSProperties } from "react";
+import Cursor from "@/components/Cursor";
+import SmoothScroll from "@/components/SmoothScroll";
+import {
+  AnimatedCaseTitle,
+  CaseAtmosphere,
+  CaseProgress,
+  InteractiveFeatures,
+  InteractiveGallery,
+} from "@/components/CaseStudyMotion";
 import { projects } from "@/lib/projects";
 
-export default async function ProjectPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export function generateStaticParams() {
+  return Object.keys(projects).map((slug) => ({ slug }));
+}
+
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-
   const project = projects[slug as keyof typeof projects];
-  
+  if (!project) notFound();
 
-  if (!project) {
-    return (
-      <div className="min-h-screen flex items-center justify-center text-white">
-        <h1 className="text-2xl">Project not found</h1>
-      </div>
-    );
-  }
+  const theme = {
+    "--case-accent": project.theme.accent,
+    "--case-surface": project.theme.surface,
+  } as CSSProperties;
 
   return (
-    <div className={`min-h-screen text-white bg-gradient-to-br ${project.theme.bg}`}>
-      <div className="max-w-6xl mx-auto px-6 py-16">
+    <SmoothScroll>
+      <Cursor />
+      <CaseProgress />
+      <main className="case-study" style={theme}>
+        <CaseAtmosphere />
+        <header className="case-nav">
+          <Link href="/#work">APS<span>®</span></Link>
+          <span className="mono">CASE / {slug.toUpperCase()}</span>
+          <Link href="/#work" className="mono">← ALL PROJECTS</Link>
+        </header>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-white">
-          {project.title}
-        </h1>
+        <section className="case-hero section-shell">
+          <div className="section-tag mono">CASE STUDY / {slug.toUpperCase()}</div>
+          <div className="case-title-row">
+            <AnimatedCaseTitle title={project.title} />
+            <span className="case-star" aria-hidden="true">✳</span>
+          </div>
+          <div className="case-summary">
+            <p>{project.desc}</p>
+            <a href={project.live} target="_blank" rel="noreferrer" data-cursor="LIVE">View live project <span>↗</span></a>
+          </div>
+        </section>
 
-        <p className="text-gray-300 mt-4 max-w-2xl text-lg">
-          {project.desc}
-        </p>
+        <InteractiveGallery images={project.images} title={project.title} />
 
-        <div className="mt-6 space-y-4">
+        <section className="case-features section-shell">
+          <div className="section-tag mono">WHAT IT DOES</div>
+          <div className="feature-grid">
+            <h2>Made for<br /><em>real workflows.</em></h2>
+            <InteractiveFeatures features={project.features} />
+          </div>
+        </section>
 
-          <a
-            href={project.live}
-            target="_blank"
-            className="inline-block px-6 py-3 rounded-lg bg-white text-black font-medium hover:scale-105 transition"
-          >
-            Live Demo →
-          </a>
-
-          {"credentials" in project && project.credentials && (
-            <div className="mt-4 p-4 rounded-lg border border-gray-700 bg-white/5 text-sm text-gray-300 space-y-1">
-              <p className="font-semibold text-white">Demo Login</p>
-              <p>Email: {project.credentials.email}</p>
-              <p>Password: {project.credentials.password}</p>
-            </div>
-          )}
-
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 pb-20">
-        <h2 className="text-xl font-semibold mb-6 text-gray-200">
-          Screenshots
-        </h2>
-
-        <div className="space-y-10">
-          {project.images.map((img, i) => (
-            <div
-              key={i}
-              className="rounded-2xl overflow-hidden border border-gray-800 shadow-xl"
-            >
-              <Image
-                src={img}
-                alt={`project-${i}`}
-                width={1920}
-                height={1080}
-                className="w-full h-auto object-contain bg-black"
-                priority={i === 0}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 pb-20">
-        <h2 className="text-xl font-semibold mb-4 text-gray-200">
-          Key Features
-        </h2>
-
-        <ul className="grid md:grid-cols-2 gap-3 text-gray-300">
-          {project.features.map((f) => (
-            <li
-              key={f}
-              className="p-4 rounded-lg border border-gray-800 bg-white/5"
-            >
-              {f}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+        <footer className="case-footer section-shell">
+          <Link href="/#work" data-cursor="NEXT">Explore another project <span>↗</span></Link>
+        </footer>
+      </main>
+    </SmoothScroll>
   );
 }

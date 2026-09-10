@@ -1,19 +1,24 @@
 import Navbar from "@/components/Navbar";
-import About from "@/sections/About";
-import Contact from "@/sections/Contact";
+import Cursor from "@/components/Cursor";
+import SmoothScroll from "@/components/SmoothScroll";
 import Hero from "@/sections/Hero";
 import Projects from "@/sections/Project";
+import About from "@/sections/About";
 import Skills from "@/sections/Skills";
+import Contact from "@/sections/Contact";
 
 export default function Home() {
   return (
-    <main className="bg-black text-white">
+    <SmoothScroll>
+      <Cursor />
       <Navbar />
-      <Hero />
-      <Projects />
-      <About/>
-      <Skills />
-      <Contact />
-    </main>
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
+    </SmoothScroll>
   );
 }

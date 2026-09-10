@@ -1,103 +1,44 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const projects = [
-  {
-    title: "Hospital Management System",
-    desc: "Role-based hospital system with appointments, doctor scheduling, and admin dashboard.",
-    slug: "hms",
-  },
-   {
-    title: "Olive Dental Home",
-    desc: "Dental clinic web app for appointment booking and clinic management.",
-    slug: "dentalClinic",
-  },
-  {
-    title: "FinTrackr",
-    desc: "Finance tracking dashboard with analytics and expense management.",
-    slug: "fintrackr",
-  },
-  {
-    title: "Cake Lounge",
-    desc: "Cake shop UI with modern design and static product data.",
-    slug: "cakelounge",
-  },
-  {
-  title: "Brew Beans",
-  desc: "Clean and responsive coffee shop website for browsing menu and drinks.",
-  slug: "coffeeshop",
-},
-  {
-    title: "ShopNow",
-    desc: "E-commerce UI with product API integration and cart system.",
-    slug: "shopnow",
-  },
-  
- 
+  { number: "01", title: "Digital Clinic", category: "FULL-STACK · AWS", description: "Role-based clinic operations, scheduling, pharmacy inventory, billing and revenue intelligence.", image: "/adminDash.png", slug: "hms", tone: "coral" },
+  { number: "02", title: "FinTrackr", category: "PRODUCT · FINTECH", description: "A unified home for personal spending, analytics, shared expenses and settlements.", image: "/finDash.png", slug: "fintrackr", tone: "lime" },
+  { number: "03", title: "Olive Dental", category: "WEB APP · HEALTH", description: "A calm, responsive appointment experience and clinic-management interface.", image: "/oliveDentalHome.png", slug: "dentalClinic", tone: "sky" },
+  { number: "04", title: "Brew Beans", category: "INTERFACE · MOTION", description: "A warm, animated storefront that makes browsing the coffee menu feel tactile.", image: "/brew-bean-home.png", slug: "coffeeshop", tone: "amber" },
+  { number: "05", title: "ShopNow", category: "ECOMMERCE · API", description: "Product discovery, filtering and a responsive cart flow powered by live APIs.", image: "/shopNowDash.png", slug: "shopnow", tone: "rose" },
+  { number: "06", title: "Cake Lounge", category: "UI DESIGN · NEXT.JS", description: "An elegant, chocolate-toned cake catalogue built as a modular storefront.", image: "/cakeLoungeHome.png", slug: "cakelounge", tone: "violet" },
 ];
 
 export default function Projects() {
+  const target = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target, offset: ["start start", "end end"] });
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-76%"]);
+  const spin = useTransform(scrollYProgress, [0, 1], [0, 720]);
   return (
-    <section id="projects" className="py-24 px-6 max-w-6xl mx-auto">
-
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        className="text-4xl font-bold text-center"
-      >
-        Projects
-      </motion.h2>
-
-      <div className="grid md:grid-cols-3 gap-6 mt-12">
-
-        {projects.map((p, i) => (
-          <motion.div
-            key={p.slug}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="
-              group relative p-6 rounded-2xl 
-              border border-gray-800 bg-white/5 
-              hover:bg-white/10 
-              hover:scale-[1.05] 
-              transition-all duration-300
-              cursor-pointer
-            "
-          >
-
-            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-r from-white/10 to-transparent blur-xl" />
-
-            
-            <div className="relative z-10">
-
-              <h3 className="text-xl font-semibold group-hover:text-white transition">
-                {p.title}
-              </h3>
-
-              <p className="text-gray-400 text-sm mt-2 group-hover:text-gray-300 transition">
-                {p.desc}
-              </p>
-
-             
-              <p className="text-xs text-gray-500 mt-4 opacity-0 group-hover:opacity-100 transition">
-                Click to explore full details →
-              </p>
-
-              <Link
-                href={`/projects/${p.slug}`}
-                className="inline-block mt-4 text-sm text-white font-medium"
-              >
-                Open Project →
-              </Link>
-
-            </div>
-
-          </motion.div>
-        ))}
-
+    <section id="work" ref={target} className="project-scroll">
+      <div className="project-sticky">
+        <div className="project-heading section-shell">
+          <div className="section-tag mono">02 / SELECTED WORK</div>
+          <div className="project-heading-row"><h2>Built to be used.</h2><motion.div className="spin-mark" style={{ rotate: spin }} aria-hidden="true">✳</motion.div><p className="mono">SCROLL TO EXPLORE<br />YOUR SCROLL REWINDS →</p></div>
+        </div>
+        <motion.div className="project-track" style={{ x }}>
+          {projects.map((project) => (
+            <Link href={`/projects/${project.slug}`} key={project.slug} className={`project-card ${project.tone}`} data-cursor="VIEW">
+              <div className="project-card-top mono"><span>{project.number}</span><span>{project.category}</span><span>↗</span></div>
+              <div className="project-image-wrap">
+                <Image src={project.image} alt={`${project.title} interface`} fill sizes="(max-width: 700px) 82vw, 58vw" className="project-image" />
+                <span className="project-glare" />
+              </div>
+              <div className="project-card-bottom"><h3>{project.title}</h3><p>{project.description}</p></div>
+            </Link>
+          ))}
+        </motion.div>
+        <div className="track-progress section-shell"><motion.span style={{ scaleX: scrollYProgress }} /></div>
       </div>
     </section>
   );

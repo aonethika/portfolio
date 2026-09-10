@@ -1,57 +1,28 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import type { MouseEvent, ReactNode } from "react";
+
+function MagneticLink({ href, children }: { href: string; children: ReactNode }) {
+  const x = useMotionValue(0); const y = useMotionValue(0);
+  const sx = useSpring(x, { stiffness: 250, damping: 18 }); const sy = useSpring(y, { stiffness: 250, damping: 18 });
+  const move = (event: MouseEvent<HTMLAnchorElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    x.set((event.clientX - rect.left - rect.width / 2) * 0.2); y.set((event.clientY - rect.top - rect.height / 2) * 0.2);
+  };
+  return <motion.a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined} onMouseMove={move} onMouseLeave={() => { x.set(0); y.set(0); }} style={{ x: sx, y: sy }} data-cursor="GO">{children}</motion.a>;
+}
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-6 max-w-4xl mx-auto text-center">
-
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-4xl font-bold"
-      >
-        Let’s Work Together
-      </motion.h2>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-        className="text-gray-400 mt-6"
-      >
-        Have a project or opportunity? Let’s connect.
-      </motion.p>
-
-      <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center">
-
-        <a
-          href="mailto:psavanthika03@gmail.com"
-          className="px-6 py-3 bg-white text-black rounded-lg font-medium"
-        >
-          Email Me
-        </a>
-
-        <a
-          href="https://github.com/aonethika"
-          target="_blank"
-          className="px-6 py-3 border border-gray-700 rounded-lg"
-        >
-          GitHub
-        </a>
-
-        <a
-          href="https://linkedin.com/in/avanthika-ps"
-          target="_blank"
-          className="px-6 py-3 border border-gray-700 rounded-lg"
-        >
-          LinkedIn
-        </a>
-
+    <footer id="contact" className="contact">
+      <div className="contact-orbit" aria-hidden="true"><span /></div>
+      <div className="section-shell contact-inner">
+        <div className="section-tag mono">04 / LET’S CONNECT</div>
+        <motion.h2 initial={{ y: 90, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ amount: 0.5 }} transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}>Have an idea?<br /><em>Let’s make it real.</em></motion.h2>
+        <MagneticLink href="mailto:psavanthika03@gmail.com">psavanthika03@gmail.com <span>↗</span></MagneticLink>
+        <div className="footer-row mono"><span>© 2026 AVANTHIKA P S</span><div><MagneticLink href="https://www.linkedin.com/in/avanthika-ps">LINKEDIN ↗</MagneticLink><MagneticLink href="https://github.com/aonethika">GITHUB ↗</MagneticLink><MagneticLink href="/Avanthika-PS-Resume.pdf">RÉSUMÉ ↗</MagneticLink></div><a href="#home">BACK TO TOP ↑</a></div>
       </div>
-
-    </section>
+    </footer>
   );
 }
